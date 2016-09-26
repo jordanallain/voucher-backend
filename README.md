@@ -214,6 +214,8 @@ HTTP/1.1 200 OK
 }
 ```
 
+#### GET /instruments/:id
+
 Request:
 
 ```sh
@@ -233,11 +235,14 @@ HTTP/1.1 200 OK
   }
 }
 ```
-### Users instruments
+### User Instruments
 
 | Verb | URI Pattern | Controller#Action |
 |------|-------------|-------------------|
 | POST  |`/user_instruments`| `user_instruments#create` |
+| DELETE |`/user_instruments`|`user_instruments#destroy`|
+
+#### POST /user_instruments
 
 Request:
 
@@ -277,6 +282,21 @@ HTTP/1.1 201 Created
     }
   }
 }
+```
+
+#### DELETE /user_instruments
+
+Request:
+
+```sh
+curl --include --request DELETE http://localhost:3000/user_instruments/$ID \
+  --header "Authorization: Token token=$TOKEN"
+```
+
+Response:
+
+```sh
+HTTP/1.1 204 No Content
 ```
 
 ## [License](LICENSE)
