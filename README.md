@@ -237,16 +237,16 @@ HTTP/1.1 200 OK
 
 | Verb | URI Pattern | Controller#Action |
 |------|-------------|-------------------|
-| POST  |`/users_instruments`| `users_instruments#create` |
+| POST  |`/user_instruments`| `user_instruments#create` |
 
 Request:
 
 ```sh
-curl --include --request POST http://localhost:3000/users_instruments \
+curl --include --request POST http://localhost:3000/user_instruments \
   --header "Content-Type: application/json" \
   --header "Authorization: Token token=$TOKEN" \
   --data '{
-    "users_instrument": {
+    "user_instrument": {
       "user_id": "1",
       "instrument_id": "1"
     }
@@ -259,7 +259,7 @@ Response:
 HTTP/1.1 201 Created
 
 {
-  "users_instrument":
+  "user_instrument":
   {
     "id":1,
     "user_id":1,

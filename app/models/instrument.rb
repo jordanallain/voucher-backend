@@ -1,4 +1,4 @@
 class Instrument < ActiveRecord::Base
-  has_many :users, through: :users_instruments
-  has_many :users_instruments
+  has_many :users, through: :user_instruments
+  has_many :user_instruments
 end
