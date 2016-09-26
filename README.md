@@ -36,15 +36,10 @@ curl --include --request POST http://localhost:3000/sign-up \
   }'
 ```
 
-```sh
-scripts/sign-up.sh
-```
-
 Response:
 
-```md
+```sh
 HTTP/1.1 201 Created
-Content-Type: application/json; charset=utf-8
 
 {
   "user": {
@@ -69,15 +64,10 @@ curl --include --request POST http://localhost:3000/sign-in \
   }'
 ```
 
-```sh
-scripts/sign-in.sh
-```
-
 Response:
 
-```md
+```sh
 HTTP/1.1 200 OK
-Content-Type: application/json; charset=utf-8
 
 {
   "user": {
@@ -103,14 +93,11 @@ curl --include --request PATCH http://localhost:3000/change-password/$ID \
     }
   }'
 ```
-
-```sh
-ID=1 TOKEN=33ad6372f795694b333ec5f329ebeaaa scripts/change-password.sh
 ```
 
 Response:
 
-```md
+```sh
 HTTP/1.1 204 No Content
 ```
 
@@ -123,13 +110,9 @@ curl --include --request DELETE http://localhost:3000/sign-out/$ID \
   --header "Authorization: Token token=$TOKEN"
 ```
 
-```sh
-ID=1 TOKEN=33ad6372f795694b333ec5f329ebeaaa scripts/sign-out.sh
-```
-
 Response:
 
-```md
+```sh
 HTTP/1.1 204 No Content
 ```
 
@@ -138,7 +121,7 @@ HTTP/1.1 204 No Content
 | Verb | URI Pattern | Controller#Action |
 |------|-------------|-------------------|
 | GET  | `/users`    | `users#index`     |
-| GET  | `/users/1`  | `users#show`      |
+| GET  | `/users/:id`| `users#show`      |
 
 #### GET /users
 
@@ -149,15 +132,10 @@ curl --include --request GET http://localhost:3000/users \
   --header "Authorization: Token token=$TOKEN"
 ```
 
-```sh
-TOKEN=33ad6372f795694b333ec5f329ebeaaa scripts/users.sh
-```
-
 Response:
 
-```md
+```sh
 HTTP/1.1 200 OK
-Content-Type: application/json; charset=utf-8
 
 {
   "users": [
@@ -182,20 +160,76 @@ curl --include --request GET http://localhost:3000/users/$ID \
   --header "Authorization: Token token=$TOKEN"
 ```
 
-```sh
-ID=2 TOKEN=33ad6372f795694b333ec5f329ebeaaa scripts/user.sh
-```
-
 Response:
 
-```md
+```sh
 HTTP/1.1 200 OK
-Content-Type: application/json; charset=utf-8
 
 {
   "user": {
     "id": 2,
     "email": "another@example.email"
+  }
+}
+```
+
+### Instruments
+
+| Verb | URI Pattern | Controller#Action |
+|------|-------------|-------------------|
+| GET  |`/instruments`| `instruments#index`|
+| GET  |`/instruments/:id`|`instruments#show`|
+
+#### GET /instruments
+
+Request:
+
+```sh
+curl --include --request GET http://localhost:3000/instruments
+```
+
+Response:
+
+```sh
+HTTP/1.1 200 OK
+
+{
+  "instruments": [
+    {
+      "id": 1,
+      "name": "electric guitar",
+      "genre": "string"
+    },
+    {
+      "id": 2,
+      "name": "drums",
+      "genre": "percussion"
+    },
+    {
+      "id": 3,
+      "name": "bass guitar",
+      "genre": "string"
+    },
+  ]
+}
+```
+
+Request:
+
+```sh
+
+```
+
+Response:
+
+```sh
+HTTP/1.1 200 OK
+
+{
+  "instrument": {
+    "id": 1,
+    "name": "electric guitar",
+    "genre": "string"
   }
 }
 ```
