@@ -49,11 +49,11 @@ class InstrumentsController < ApplicationController
 
   private
 
-    def set_instrument
-      @instrument = Instrument.find(params[:id])
-    end
+  def set_instrument
+    @instrument = Instrument.find(params[:id])
+  end
 
-    def instrument_params
-      params.require(:instrument).permit(:name, :type)
-    end
+  def instrument_params
+    params.require(:instrument).permit(:name, :type)
+  end
 end
