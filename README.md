@@ -217,7 +217,7 @@ HTTP/1.1 200 OK
 Request:
 
 ```sh
-
+curl --include --request GET http://localhost:3000/instruments/$ID
 ```
 
 Response:
