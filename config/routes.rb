@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :users_instruments, except: [:new, :edit]
   resources :instruments, except: [:new, :edit]
   resources :examples, except: [:new, :edit]
   post '/sign-up' => 'users#signup'
