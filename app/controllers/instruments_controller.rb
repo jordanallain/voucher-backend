@@ -18,6 +18,7 @@ class InstrumentsController < ApplicationController
   # POST /instruments
   # POST /instruments.json
   def create
+    # @favorite = current_user.favorites.build(favorite_params)
     @instrument = Instrument.new(instrument_params)
 
     if @instrument.save
@@ -54,6 +55,6 @@ class InstrumentsController < ApplicationController
   end
 
   def instrument_params
-    params.require(:instrument).permit(:name, :type)
+    params.require(:instrument).permit(:name, :genre)
   end
 end

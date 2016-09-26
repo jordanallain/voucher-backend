@@ -4,6 +4,6 @@ curl --include --request POST http://localhost:3000/instruments \
   --data '{
     "instrument": {
       "name": "electric guitar",
-      "type": "electric"
+      "genre": "string"
     }
   }'
