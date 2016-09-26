@@ -233,6 +233,51 @@ HTTP/1.1 200 OK
   }
 }
 ```
+### Users instruments
+
+| Verb | URI Pattern | Controller#Action |
+|------|-------------|-------------------|
+| POST  |`/users_instruments`| `users_instruments#create` |
+
+Request:
+
+```sh
+curl --include --request POST http://localhost:3000/users_instruments \
+  --header "Content-Type: application/json" \
+  --header "Authorization: Token token=$TOKEN" \
+  --data '{
+    "users_instrument": {
+      "user_id": "1",
+      "instrument_id": "1"
+    }
+  }'
+```
+
+Response:
+
+```sh
+HTTP/1.1 201 Created
+
+{
+  "users_instrument":
+  {
+    "id":1,
+    "user_id":1,
+    "instrument_id":1,
+    "user":
+    {
+      "id":1,
+      "email":"joe@joe.com"
+    },
+    "instrument":
+    {
+      "id":1,
+      "name":"electric guitar",
+      "genre":"electric"
+    }
+  }
+}
+```
 
 ## [License](LICENSE)
 
