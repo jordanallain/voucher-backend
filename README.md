@@ -240,6 +240,8 @@ HTTP/1.1 200 OK
 | Verb | URI Pattern | Controller#Action |
 |------|-------------|-------------------|
 | POST  |`/user_instruments`| `user_instruments#create` |
+| GET | `/user_instruments`| `user_instruments#index` |
+| GET | `/user_instruments`| `user_instruments#show` |
 | DELETE |`/user_instruments`|`user_instruments#destroy`|
 
 #### POST /user_instruments
@@ -279,6 +281,83 @@ HTTP/1.1 201 Created
       "id":1,
       "name":"electric guitar",
       "genre":"electric"
+    }
+  }
+}
+```
+
+#### GET /user_instruments
+
+Request:
+
+```sh
+curl --include --request GET http://localhost:3000/user_instruments
+```
+
+Response:
+
+```sh
+HTTP/1.1 201 Created
+{
+  "user_instruments": [
+    {
+      "id": 2,
+      "user_id": 1,
+      "instrument_id": 1,
+      "user": {
+        "id": 1,
+        "email": "joe@joe.com"
+      },
+      "instrument": {
+        "id": 1,
+        "name": "electric guitar",
+        "genre": "string"
+      }
+    },
+    {
+      "id": 3,
+      "user_id": 1,
+      "instrument_id": 2,
+      "user": {
+        "id": 1,
+        "email": "joe@joe.com"
+      },
+      "instrument": {
+        "id": 2,
+        "name": "bass guitar",
+        "genre": "string"
+      }
+    }
+  ]
+}
+```
+
+#### GET /user_instruments/:id
+
+Request:
+
+```sh
+curl --include --request GET http://localhost:3000/user_instruments/$ID
+```
+
+Response:
+
+```sh
+HTTP/1.1 201 Created
+
+{
+  "user_instrument": {
+    "id": 2,
+    "user_id": 1,
+    "instrument_id": 1,
+    "user": {
+      "id": 1,
+      "email": "joe@joe.com"
+    },
+    "instrument": {
+      "id": 1,
+      "name": "electric guitar",
+      "genre": "electric"
     }
   }
 }
