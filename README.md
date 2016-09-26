@@ -122,6 +122,8 @@ HTTP/1.1 204 No Content
 |------|-------------|-------------------|
 | GET  | `/users`    | `users#index`     |
 | GET  | `/users/:id`| `users#show`      |
+| PATCH  | `/users/:id/edit-bio` | `users#update` |
+
 
 #### GET /users
 
@@ -171,6 +173,27 @@ HTTP/1.1 200 OK
     "email": "another@example.email"
   }
 }
+```
+
+#### PATCH /users/:id/edit-bio
+
+Request:
+
+```sh
+curl --include --request PATCH http://localhost:3000/users/$ID/edit-bio/ \
+  --header "Authorization: Token token=$TOKEN" \
+  --header "Content-Type: application/json" \
+  --data '{
+    "user": {
+      "bio": "hey i like all the stuff"
+    }
+  }'
+```
+
+Response:
+
+```sh
+HTTP/1.1 204 No Content
 ```
 
 ### Instruments

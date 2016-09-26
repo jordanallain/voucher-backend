@@ -1,5 +1,6 @@
-class UsersController < ProtectedController
+class UsersController < OpenReadController
   skip_before_action :authenticate, only: [:signup, :signin]
+  before_action :set_user, only: [:update]
 
   # POST '/sign-up'
   def signup
@@ -53,10 +54,23 @@ class UsersController < ProtectedController
   end
 
   def update
-    head :bad_request
+    # head :bad_request
+    if @user.update(user_params)
+      head :no_content
+    else
+      render json: @user.errors, status: :unprocessable_entity
+    end
+  end
+
+  def set_user
+    @user = User.find(params[:id])
   end
 
   private
+
+  def user_params
+    params.require(:user).permit(:name, :id, :bio)
+  end
 
   def user_creds
     params.require(:credentials)
@@ -68,5 +82,5 @@ class UsersController < ProtectedController
           .permit(:old, :new)
   end
 
-  private :user_creds, :pw_creds
+  private :user_creds, :pw_creds, :user_params
 end
