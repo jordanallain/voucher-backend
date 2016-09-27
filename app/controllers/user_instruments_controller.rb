@@ -1,4 +1,4 @@
-class UserInstrumentsController < ProtectedController
+class UserInstrumentsController < OpenReadController
   before_action :set_user_instrument, only: [:show, :update, :destroy]
 
   # GET /user_instruments
