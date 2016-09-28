@@ -3,11 +3,9 @@ class UserSerializer < ActiveModel::Serializer
 
   def user_instruments
     object.user_instruments.pluck(:id)
-    # object.user_instruments.id
   end
 
   def instruments
     object.instruments.pluck(:id)
-    # object.instruments.id
   end
 end
