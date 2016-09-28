@@ -1,4 +1,4 @@
-class UserInstrumentsController < OpenReadController
+class UserInstrumentsController < ProtectedController
   before_action :set_user_instrument, only: [:show, :update, :destroy]
 
   # GET /user_instruments
@@ -19,8 +19,8 @@ class UserInstrumentsController < OpenReadController
   # POST /user_instruments
   # POST /user_instruments.json
   def create
-    # @user_instrument = UserInstrument.new(user_instrument_params)
-    @user_instrument = current_user.user_instruments.build(user_instrument_params)
+    @user_instrument = UserInstrument.new(user_instrument_params)
+    # @user_instrument = current_user.user_instruments.build(user_instrument_params)
 
     if @user_instrument.save
       render json: @user_instrument, status: :created, location: @user_instrument
@@ -58,6 +58,6 @@ class UserInstrumentsController < OpenReadController
     end
 
     def user_instrument_params
-      params.require(:user_instrument).permit(:instrument_id)
+      params.require(:user_instrument).permit(:instrument_id, :user_id, :user, :instrument)
     end
 end

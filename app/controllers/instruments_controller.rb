@@ -18,7 +18,7 @@ class InstrumentsController < ApplicationController
   # POST /instruments
   # POST /instruments.json
   def create
-    # @favorite = current_user.favorites.build(favorite_params)
+    # @user_instrument = current_user.user_instrument.build(user_instrument_params)
     @instrument = Instrument.new(instrument_params)
 
     if @instrument.save
