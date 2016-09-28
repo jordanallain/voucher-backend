@@ -41,7 +41,8 @@ module Voucher
     # Cross-Origin Resource Sharing
     config.middleware.use Rack::Cors do
       allow do
-        origins ENV['CLIENT_ORIGIN'] || 'http://localhost:4200'
+        # origins ENV['CLIENT_ORIGIN'] || 'http://localhost:4200'
+        origins ENV['CLIENT_ORIGIN'] || 'git@github.com:jordanallain/voucher.git'
         resource '*',
                  headers: :any,
                  methods: [:options, :get,
