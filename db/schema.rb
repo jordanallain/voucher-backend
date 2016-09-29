@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160926203502) do
+ActiveRecord::Schema.define(version: 20160929032918) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20160926203502) do
     t.integer  "instrument_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.string   "styles"
   end
 
   add_index "user_instruments", ["instrument_id"], name: "index_user_instruments_on_instrument_id", using: :btree

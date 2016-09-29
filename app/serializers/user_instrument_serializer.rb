@@ -1,5 +1,5 @@
 class UserInstrumentSerializer < ActiveModel::Serializer
-  attributes :id, :user, :instrument
+  attributes :id, :user, :instrument, :styles
   has_one :user
   has_one :instrument
 
