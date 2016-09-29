@@ -122,7 +122,7 @@ HTTP/1.1 204 No Content
 |------|-------------|-------------------|
 | GET  | `/users`    | `users#index`     |
 | GET  | `/users/:id`| `users#show`      |
-| PATCH  | `/users/:id/edit-bio` | `users#update` |
+| PATCH  | `/users/:id/bio-edit` | `users#update` |
 
 
 #### GET /users

@@ -19,8 +19,7 @@ class UserInstrumentsController < ProtectedController
   # POST /user_instruments
   # POST /user_instruments.json
   def create
-    @user_instrument = UserInstrument.new(user_instrument_params)
-    # @user_instrument = current_user.user_instruments.build(user_instrument_params)
+    @user_instrument = current_user.user_instruments.build(user_instrument_params)
 
     if @user_instrument.save
       render json: @user_instrument, status: :created, location: @user_instrument
@@ -33,7 +32,7 @@ class UserInstrumentsController < ProtectedController
   # PATCH/PUT /user_instruments/1.json
   def update
     # @user_instrument = UserInstrument.find(params[:id])
-    @user_instrument = current_user.find(params[:id])
+    # @user_instrument = current_user.find(params[:id])
 
     if @user_instrument.update(user_instrument_params)
       head :no_content
@@ -53,11 +52,10 @@ class UserInstrumentsController < ProtectedController
   private
 
     def set_user_instrument
-      # @user_instrument = UserInstrument.find(params[:id])
       @user_instrument = current_user.user_instruments.find(params[:id])
     end
 
     def user_instrument_params
-      params.require(:user_instrument).permit(:instrument_id, :user_id, :user, :instrument)
+      params.require(:user_instrument).permit(:instrument_id, :user_id, :user, :instrument, :styles)
     end
 end
