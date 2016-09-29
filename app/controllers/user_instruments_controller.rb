@@ -19,8 +19,7 @@ class UserInstrumentsController < ProtectedController
   # POST /user_instruments
   # POST /user_instruments.json
   def create
-    @user_instrument = UserInstrument.new(user_instrument_params)
-    # @user_instrument = current_user.user_instruments.build(user_instrument_params)
+    @user_instrument = current_user.user_instruments.build(user_instrument_params)
 
     if @user_instrument.save
       render json: @user_instrument, status: :created, location: @user_instrument
@@ -53,7 +52,6 @@ class UserInstrumentsController < ProtectedController
   private
 
     def set_user_instrument
-      # @user_instrument = UserInstrument.find(params[:id])
       @user_instrument = current_user.user_instruments.find(params[:id])
     end
 
