@@ -33,7 +33,7 @@ class UserInstrumentsController < ProtectedController
   # PATCH/PUT /user_instruments/1.json
   def update
     # @user_instrument = UserInstrument.find(params[:id])
-    @user_instrument = current_user.find(params[:id])
+    # @user_instrument = current_user.find(params[:id])
 
     if @user_instrument.update(user_instrument_params)
       head :no_content
@@ -58,6 +58,6 @@ class UserInstrumentsController < ProtectedController
     end
 
     def user_instrument_params
-      params.require(:user_instrument).permit(:instrument_id, :user_id, :user, :instrument)
+      params.require(:user_instrument).permit(:instrument_id, :user_id, :user, :instrument, :styles)
     end
 end
