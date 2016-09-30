@@ -12,6 +12,15 @@ https://rocky-falls-32123.herokuapp.com/
 
 https://github.com/jordanallain/voucher
 
+
+## Install Dependencies
+
+Enter
+
+```sh
+bundle install
+```
+
 ### Authentication
 
 | Verb   | URI Pattern            | Controller#Action |
