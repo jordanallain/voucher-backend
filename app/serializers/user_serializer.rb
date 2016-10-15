@@ -6,6 +6,6 @@ class UserSerializer < ActiveModel::Serializer
   end
 
   def instruments
-    object.instruments.pluck(:id)
+    object.instruments.pluck(:name)
   end
 end
